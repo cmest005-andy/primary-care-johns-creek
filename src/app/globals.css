@@ -1,8 +1,78 @@
 @import "tailwindcss";
 
+/**
+ * Global base styles for Primary Care of Johns Creek.
+ *
+ * Background/foreground map to the warm cream/charcoal tokens defined below,
+ * replacing the default black/white scaffold so the whole site (including
+ * native form controls, scrollbars, etc.) inherits the warm, approachable
+ * palette rather than a sterile clinical look.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffdf9; /* cream-50 */
+  --foreground: #332c25; /* charcoal-800 */
+}
+
+/**
+ * Tailwind v4 CSS-first theme configuration.
+ *
+ * Tailwind CSS v4 no longer reads a JS `tailwind.config.ts` file by default —
+ * custom design tokens must be declared here as CSS custom properties using
+ * the `--color-<name>-<shade>` / `--radius-<name>` naming convention. Tailwind
+ * then auto-generates the matching utility classes (e.g. `bg-sage-50`,
+ * `text-terracotta-600`, `rounded-2xl`) from these variables.
+ *
+ * These values are migrated 1:1 from the former `tailwind.config.ts`, which
+ * has been removed since it was silently ignored under Tailwind v4's
+ * CSS-first configuration model.
+ *
+ * Brand personality: warm, approachable, community-focused primary care —
+ * deliberately avoids a sterile, all-white/all-blue clinical look in favor
+ * of soft sage greens, warm creams, and a muted terracotta/coral accent.
+ */
+@theme {
+  /* Warm cream background tones — replaces sterile white. */
+  --color-cream-50: #fffdf9;
+  --color-cream-100: #fdf8ee;
+  --color-cream-200: #faf0da;
+  --color-cream-300: #f5e5bf;
+
+  /* Soft sage green — primary brand color, calm and welcoming. */
+  --color-sage-50: #f3f7f2;
+  --color-sage-100: #e2ebde;
+  --color-sage-200: #c6d8bf;
+  --color-sage-300: #a3c199;
+  --color-sage-400: #82a878;
+  --color-sage-500: #658d5c;
+  --color-sage-600: #4f7248;
+  --color-sage-700: #405b3b;
+  --color-sage-800: #354a31;
+  --color-sage-900: #2c3d2a;
+
+  /* Muted terracotta/coral accent — warm, human, used for CTAs. */
+  --color-terracotta-50: #fdf3ee;
+  --color-terracotta-100: #fbe3d6;
+  --color-terracotta-200: #f5c3a8;
+  --color-terracotta-300: #eda078;
+  --color-terracotta-400: #e17e52;
+  --color-terracotta-500: #cc6238;
+  --color-terracotta-600: #a94d2b;
+  --color-terracotta-700: #873c22;
+  --color-terracotta-800: #6c311e;
+  --color-terracotta-900: #59291c;
+
+  /* Warm neutral/charcoal for body copy — softer than pure black. */
+  --color-charcoal-50: #f7f6f4;
+  --color-charcoal-100: #e9e6e1;
+  --color-charcoal-300: #b9b2a8;
+  --color-charcoal-500: #7d7468;
+  --color-charcoal-700: #4a4238;
+  --color-charcoal-800: #332c25;
+  --color-charcoal-900: #241f1a;
+
+  /* Custom border-radius tokens used across cards/buttons. */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
 }
 
 @theme inline {
@@ -12,15 +82,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
