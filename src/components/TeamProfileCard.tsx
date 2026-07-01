@@ -28,6 +28,10 @@ interface TeamProfileCardProps {
  * keeping this component reusable for any team member shape that matches
  * the `TeamMember` type.
  *
+ * The card's root element carries `id={member.id}` so other pages (e.g.
+ * the blog's author byline) can deep-link to a specific team member via
+ * `/about#<id>` without this component needing to know about its callers.
+ *
  * Visual treatment: a warm cream surface with a saturated sage border and a
  * terracotta left accent bar, so each card has real color presence instead
  * of reading as a flat white box.
@@ -37,7 +41,10 @@ export default function TeamProfileCard({
   priority = false,
 }: TeamProfileCardProps) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl border border-sage-300 border-l-4 border-l-terracotta-400 bg-cream-100 shadow-sm transition-shadow hover:shadow-md">
+    <article
+      id={member.id}
+      className="flex flex-col overflow-hidden rounded-2xl border border-sage-300 border-l-4 border-l-terracotta-400 bg-cream-100 shadow-sm transition-shadow hover:shadow-md scroll-mt-24"
+    >
       <div className="relative h-56 w-full bg-sage-200">
         <Image
           src={member.imageUrl}
