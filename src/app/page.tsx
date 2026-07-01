@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { practice } from "@/content/practice";
+import { services } from "@/content/services";
 
 /**
  * Home page — hero, services overview, and CTAs linking to `/about` and
- * `/contact`. All copy sourced from `src/content/practice.ts`; this file
- * is presentation only.
+ * `/contact`. Practice copy sourced from `src/content/practice.ts` and
+ * service summaries from `src/content/services.ts`; this file is
+ * presentation only.
  */
 export default function Home() {
   return (
@@ -53,18 +55,19 @@ export default function Home() {
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {practice.services.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-2xl border border-sage-300 border-l-4 border-l-sage-500 bg-cream-100 p-6 shadow-sm"
+          {services.map((service) => (
+            <Link
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              className="rounded-2xl border border-sage-300 border-l-4 border-l-sage-500 bg-cream-100 p-6 shadow-sm transition-shadow hover:shadow-md"
             >
               <h3 className="text-base font-semibold text-sage-800">
                 {service.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-charcoal-500">
-                {service.description}
+                {service.shortDescription}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

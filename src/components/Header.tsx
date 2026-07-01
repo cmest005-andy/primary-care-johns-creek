@@ -4,9 +4,10 @@ import { practice } from "@/content/practice";
 /**
  * Site header with primary navigation.
  *
- * Uses Next.js `Link` for true multi-page routing between `/`, `/about`,
- * and `/contact` — no anchor-tag single-page navigation. Presentation only;
- * all copy (practice name) is sourced from `src/content/practice.ts`.
+ * Uses Next.js `Link` for true multi-page routing between `/`, `/services`,
+ * `/about`, `/new-patient`, and `/contact` — no anchor-tag single-page
+ * navigation. Presentation only; all copy (practice name) is sourced from
+ * `src/content/practice.ts`.
  *
  * Visual treatment: a warm cream tint (rather than a near-white 50-shade)
  * paired with a saturated terracotta bottom border, so the header reads as
@@ -15,7 +16,9 @@ import { practice } from "@/content/practice";
 export default function Header() {
   const navItems = [
     { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
     { href: "/about", label: "About & Team" },
+    { href: "/new-patient", label: "New Patients" },
     { href: "/contact", label: "Contact" },
   ];
 

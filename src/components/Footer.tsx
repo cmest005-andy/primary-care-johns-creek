@@ -32,8 +32,18 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/services" className="hover:text-terracotta-300">
+                Services
+              </Link>
+            </li>
+            <li>
               <Link href="/about" className="hover:text-terracotta-300">
                 About &amp; Team
+              </Link>
+            </li>
+            <li>
+              <Link href="/new-patient" className="hover:text-terracotta-300">
+                New Patients
               </Link>
             </li>
             <li>

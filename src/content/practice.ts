@@ -5,6 +5,10 @@
  * framework imports. It acts as the "port"/data contract that page and
  * component modules consume, keeping business content decoupled from
  * presentation (hexagonal architecture applied to content).
+ *
+ * Note: clinical service content lives in `src/content/services.ts`, not
+ * here — that file is the single source of truth for the service catalog
+ * consumed by the home page and the `/services` routes.
  */
 
 /** A single operating-hours entry for one day (or day range). */
@@ -17,12 +21,6 @@ export interface OperatingHours {
 
 /** A single core value the practice holds. */
 export interface PracticeValue {
-  title: string;
-  description: string;
-}
-
-/** A single offered clinical service. */
-export interface Service {
   title: string;
   description: string;
 }
@@ -43,7 +41,6 @@ export interface PracticeInfo {
   foundingStory: string;
   mission: string;
   values: PracticeValue[];
-  services: Service[];
   address: PracticeAddress;
   phone: string;
   email: string;
@@ -88,39 +85,6 @@ export const practice: PracticeInfo = {
       title: "Community Roots",
       description:
         "We're your neighbors. We sponsor local youth sports, host free wellness workshops, and show up for Johns Creek.",
-    },
-  ],
-
-  services: [
-    {
-      title: "Annual Wellness & Preventive Care",
-      description:
-        "Comprehensive physicals, screenings, and personalized prevention plans to keep you and your family healthy year-round.",
-    },
-    {
-      title: "Chronic Disease Management",
-      description:
-        "Ongoing, coordinated care for diabetes, hypertension, high cholesterol, asthma, and other long-term conditions.",
-    },
-    {
-      title: "Same-Week Sick Visits",
-      description:
-        "Fast, friendly care for colds, flu, infections, and other everyday illnesses — no need to wait weeks for an appointment.",
-    },
-    {
-      title: "Pediatric & Adolescent Care",
-      description:
-        "Well-child checkups, immunizations, and growth monitoring for patients from early childhood through the teen years.",
-    },
-    {
-      title: "Women's & Men's Health",
-      description:
-        "Preventive screenings, hormone health, and personalized wellness guidance tailored to every stage of life.",
-    },
-    {
-      title: "Telehealth Visits",
-      description:
-        "Secure video appointments for follow-ups, medication management, and minor concerns — from wherever you are.",
     },
   ],
 
