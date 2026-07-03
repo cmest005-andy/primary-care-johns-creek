@@ -34,7 +34,14 @@ export default function ServicesPage() {
               <h2 className="text-base font-semibold text-sage-800">
                 {service.title}
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-charcoal-500">
+              {/*
+               * Card description text: previously `text-charcoal-500` on
+               * `bg-cream-100`, which measures ~4.35:1 contrast — just under
+               * the WCAG AA 4.5:1 minimum for normal text. Bumped to
+               * `text-charcoal-700` (already defined in globals.css, ~9.3:1
+               * on this background) rather than introducing a new token.
+               */}
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-700">
                 {service.shortDescription}
               </p>
             </Link>

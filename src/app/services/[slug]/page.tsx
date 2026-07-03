@@ -53,7 +53,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <h2 className="text-lg font-semibold text-sage-800">
             What to Expect
           </h2>
-          <ul className="mt-4 space-y-2 text-charcoal-600">
+          {/*
+           * List copy: previously `text-charcoal-600`, a shade that is not
+           * actually defined in the `@theme` block in globals.css (only
+           * 50/100/300/500/700/800/900 exist), so this utility class was
+           * silently generating no color rule at all. Corrected to
+           * `text-charcoal-700` — an existing token that measures ~9.3:1
+           * contrast against `bg-cream-100`, comfortably clearing the WCAG
+           * AA 4.5:1 minimum for normal text.
+           */}
+          <ul className="mt-4 space-y-2 text-charcoal-700">
             {service.whatToExpect.map((item) => (
               <li key={item} className="flex gap-3">
                 <span aria-hidden="true" className="text-terracotta-500">
